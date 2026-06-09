@@ -1,0 +1,15 @@
+{
+    "app": {
+        "port": "DEV_MEETINGS_PORT",
+        "sync": {
+            "force": "DEV_MEETINGS_SYNC_FORCE"
+        }
+    },
+    "db": {
+        "host": "DEV_MEETINGS_DB_HOST",
+        "port": "DEV_MEETINGS_DB_PORT",
+        "username": "DEV_MEETINGS_DB_USERNAME",
+        "password": "DEV_MEETINGS_DB_PASSWORD",
+        "database": "DEV_MEETINGS_DB_DATABASE"
+    }
+}

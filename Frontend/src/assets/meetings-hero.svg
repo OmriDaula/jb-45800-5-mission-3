@@ -1,0 +1,60 @@
+<svg width="640" height="440" viewBox="0 0 640 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Development team meeting illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="120" y1="90" x2="520" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="440" rx="24" fill="url(#bg)"/>
+
+  <!-- Calendar -->
+  <rect x="430" y="60" width="150" height="130" rx="12" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+  <rect x="430" y="60" width="150" height="34" rx="12" fill="#4f46e5"/>
+  <circle cx="460" cy="52" r="6" fill="#4f46e5"/>
+  <circle cx="550" cy="52" r="6" fill="#4f46e5"/>
+  <g fill="#c7d2fe">
+    <rect x="446" y="106" width="20" height="16" rx="3"/>
+    <rect x="476" y="106" width="20" height="16" rx="3"/>
+    <rect x="506" y="106" width="20" height="16" rx="3"/>
+    <rect x="536" y="106" width="20" height="16" rx="3"/>
+    <rect x="446" y="132" width="20" height="16" rx="3"/>
+  </g>
+  <rect x="476" y="132" width="20" height="16" rx="3" fill="#ea580c"/>
+  <rect x="506" y="132" width="20" height="16" rx="3" fill="#16a34a"/>
+  <rect x="536" y="132" width="20" height="16" rx="3" fill="#c7d2fe"/>
+  <rect x="446" y="158" width="20" height="16" rx="3" fill="#c7d2fe"/>
+  <rect x="476" y="158" width="20" height="16" rx="3" fill="#c7d2fe"/>
+
+  <!-- Presentation screen -->
+  <rect x="120" y="90" width="280" height="180" rx="14" fill="url(#screen)"/>
+  <rect x="120" y="90" width="280" height="180" rx="14" fill="none" stroke="#3730a3" stroke-width="3"/>
+  <rect x="150" y="120" width="150" height="16" rx="8" fill="#ffffff" opacity="0.95"/>
+  <rect x="150" y="150" width="220" height="10" rx="5" fill="#ffffff" opacity="0.6"/>
+  <rect x="150" y="170" width="200" height="10" rx="5" fill="#ffffff" opacity="0.6"/>
+  <rect x="150" y="200" width="70" height="36" rx="8" fill="#ea580c"/>
+  <rect x="232" y="200" width="70" height="36" rx="8" fill="#16a34a"/>
+  <rect x="248" y="288" width="24" height="40" fill="#94a3b8"/>
+  <rect x="180" y="326" width="160" height="10" rx="5" fill="#94a3b8"/>
+
+  <!-- People around the table -->
+  <g>
+    <circle cx="180" cy="370" r="26" fill="#4f46e5"/>
+    <circle cx="180" cy="360" r="11" fill="#c7d2fe"/>
+    <rect x="162" y="372" width="36" height="22" rx="11" fill="#c7d2fe"/>
+  </g>
+  <g>
+    <circle cx="320" cy="380" r="26" fill="#ea580c"/>
+    <circle cx="320" cy="370" r="11" fill="#ffedd5"/>
+    <rect x="302" y="382" width="36" height="22" rx="11" fill="#ffedd5"/>
+  </g>
+  <g>
+    <circle cx="450" cy="370" r="26" fill="#16a34a"/>
+    <circle cx="450" cy="360" r="11" fill="#dcfce7"/>
+    <rect x="432" y="372" width="36" height="22" rx="11" fill="#dcfce7"/>
+  </g>
+</svg>

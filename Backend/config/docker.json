@@ -1,0 +1,8 @@
+{
+    "app": {
+        "name": "Dev Meetings Docker"
+    },
+    "db": {
+        "host": "host.docker.internal"
+    }
+}

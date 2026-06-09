@@ -1,0 +1,188 @@
+{
+	"info": {
+		"name": "Dev Teams Meetings API",
+		"description": "RESTful service for managing development team meetings (Mission 3). Set the {{baseUrl}} collection variable to your running server (default http://localhost:3000). Run order matters: the POST captures the created meeting code into {{createdCode}}, which the PUT and DELETE then use.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all teams",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 200', () => pm.response.to.have.status(200));",
+							"pm.test('returns an array of teams', () => pm.expect(pm.response.json()).to.be.an('array'));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/teams",
+					"host": ["{{baseUrl}}"],
+					"path": ["teams"]
+				},
+				"description": "Returns all development teams."
+			},
+			"response": []
+		},
+		{
+			"name": "Get meetings of a team",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 200', () => pm.response.to.have.status(200));",
+							"pm.test('returns an array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/teams/1/meetings",
+					"host": ["{{baseUrl}}"],
+					"path": ["teams", "1", "meetings"]
+				},
+				"description": "Returns all meetings of a single team (by team code), ordered by start time."
+			},
+			"response": []
+		},
+		{
+			"name": "Get single meeting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 200', () => pm.response.to.have.status(200));",
+							"pm.test('has a code', () => pm.expect(pm.response.json()).to.have.property('code'));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/meetings/1",
+					"host": ["{{baseUrl}}"],
+					"path": ["meetings", "1"]
+				},
+				"description": "Returns a single meeting by its code. Responds 404 if it does not exist."
+			},
+			"response": []
+		},
+		{
+			"name": "Create meeting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 201', () => pm.response.to.have.status(201));",
+							"const body = pm.response.json();",
+							"pm.test('returns the created meeting with a code', () => pm.expect(body).to.have.property('code'));",
+							"pm.collectionVariables.set('createdCode', body.code);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"devTeamCode\": 1,\n  \"startTime\": \"2026-12-01T10:00:00Z\",\n  \"endTime\": \"2026-12-01T11:30:00Z\",\n  \"description\": \"Planning the next UI sprint.\",\n  \"room\": \"Blue Room\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/meetings",
+					"host": ["{{baseUrl}}"],
+					"path": ["meetings"]
+				},
+				"description": "Creates a new meeting. All fields required. end_time must be after start_time; start_time may not be in the past; dev_team_code must exist. Otherwise responds 422."
+			},
+			"response": []
+		},
+		{
+			"name": "Update meeting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 200', () => pm.response.to.have.status(200));",
+							"pm.test('room was updated', () => pm.expect(pm.response.json().room).to.eql('New York Room'));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"devTeamCode\": 1,\n  \"startTime\": \"2026-12-01T10:00:00Z\",\n  \"endTime\": \"2026-12-01T12:00:00Z\",\n  \"description\": \"Updated: planning the next UI sprint (extended).\",\n  \"room\": \"New York Room\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/meetings/{{createdCode}}",
+					"host": ["{{baseUrl}}"],
+					"path": ["meetings", "{{createdCode}}"]
+				},
+				"description": "Updates an existing meeting. All fields required. end_time must be after start_time. A past meeting MAY be edited (past start_time is allowed). dev_team_code must exist."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete meeting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('status is 204', () => pm.response.to.have.status(204));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/meetings/{{createdCode}}",
+					"host": ["{{baseUrl}}"],
+					"path": ["meetings", "{{createdCode}}"]
+				},
+				"description": "Deletes a meeting by its code. Responds 204 on success, 404 if it does not exist."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "createdCode",
+			"value": ""
+		}
+	]
+}

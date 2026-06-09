@@ -1,0 +1,16 @@
+{
+    "app": {
+        "port": 3000,
+        "name": "Dev Meetings Dev",
+        "sync": {
+            "force": false
+        }
+    },
+    "db": {
+        "host": "localhost",
+        "port": 3306,
+        "username": "root",
+        "password": "",
+        "database": "dev_meetings"
+    }
+}

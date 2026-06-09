@@ -1,0 +1,40 @@
+.About h1 {
+    margin-bottom: 1.5rem;
+}
+
+.About-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.About-card h2 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.About-card p {
+    color: #334155;
+    line-height: 1.7;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.05rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.tag-future {
+    background: var(--future-soft);
+    color: var(--future);
+}
+
+.tag-past {
+    background: var(--past-soft);
+    color: var(--past);
+}

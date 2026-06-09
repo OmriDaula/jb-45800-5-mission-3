@@ -1,0 +1,67 @@
+.MeetingForm {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.MeetingForm h1 {
+    margin-bottom: 1.5rem;
+}
+
+.MeetingForm form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.MeetingForm label {
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #334155;
+}
+
+.MeetingForm input,
+.MeetingForm select,
+.MeetingForm textarea {
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-alt);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.MeetingForm input:focus,
+.MeetingForm select:focus,
+.MeetingForm textarea:focus {
+    outline: 2px solid var(--primary);
+    border-color: var(--primary);
+    background: #fff;
+}
+
+.MeetingForm .error {
+    min-height: 1.2rem;
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0.6rem;
+}
+
+.MeetingForm .server-error {
+    min-height: auto;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.MeetingForm .btn {
+    margin-top: 0.5rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.MeetingForm .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

@@ -1,0 +1,15 @@
+FROM node:24-alpine
+
+WORKDIR /app
+
+# copy only package files first so the npm-install layer is cached
+# and only rebuilt when dependencies change (not on every code change)
+COPY ./package*.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+RUN npm run build
+
+CMD ["npm", "run", "docker"]

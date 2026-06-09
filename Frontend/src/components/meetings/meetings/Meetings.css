@@ -1,0 +1,184 @@
+.Meetings-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.Meetings-head h1 {
+    margin: 0;
+}
+
+.Meetings-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    max-width: 360px;
+}
+
+.Meetings-filter label {
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.Meetings-filter select {
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 1rem;
+}
+
+.Meetings-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.Meetings-legend .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.Meetings-legend .dot-future {
+    background: var(--future);
+    margin-left: 0.75rem;
+}
+
+.Meetings-legend .dot-past {
+    background: var(--past);
+}
+
+.Meetings-error {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.Meetings-info {
+    color: var(--muted);
+}
+
+.Meetings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.25rem;
+}
+
+.MeetingCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left-width: 6px;
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.MeetingCard.is-future {
+    border-left-color: var(--future);
+    background: linear-gradient(180deg, var(--future-soft) 0%, var(--surface) 30%);
+}
+
+.MeetingCard.is-past {
+    border-left-color: var(--past);
+    background: linear-gradient(180deg, var(--past-soft) 0%, var(--surface) 30%);
+}
+
+.MeetingCard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MeetingCard-room {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.MeetingCard-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+}
+
+.is-future .MeetingCard-badge {
+    background: var(--future);
+    color: #fff;
+}
+
+.is-past .MeetingCard-badge {
+    background: var(--past);
+    color: #fff;
+}
+
+.MeetingCard-desc {
+    margin: 0;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.MeetingCard-times {
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+}
+
+.MeetingCard-times > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.MeetingCard-times .label {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.MeetingCard-duration {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.MeetingCard-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.btn-sm {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-edit {
+    background: #eef2ff;
+    color: var(--primary);
+}
+
+.btn-edit:hover {
+    background: #e0e7ff;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: var(--danger);
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}

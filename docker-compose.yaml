@@ -1,0 +1,41 @@
+# Brings up the whole system (database + backend + frontend) with one command:
+#   docker compose up --build
+#
+# How the pieces talk:
+#   Browser  -> Frontend (nginx)        at http://localhost:6123
+#   Browser  -> Backend                 at http://localhost:3000  (why .env.docker uses localhost)
+#   Backend  -> Database (compose)      at host "database:3306"   (NODE_ENV=compose + config/compose.json)
+services:
+
+  database:
+    container_name: dev-meetings-db-compose
+    build: ./Database
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_DATABASE=dev_meetings
+      - MYSQL_TCP_PORT=3306
+    expose:
+      - 3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  backend:
+    container_name: dev-meetings-backend-compose
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.compose
+    ports:
+      - 3000:3000
+    depends_on:
+      database:
+        condition: service_healthy
+
+  frontend:
+    container_name: dev-meetings-frontend-compose
+    build: ./Frontend
+    ports:
+      - 6123:80
